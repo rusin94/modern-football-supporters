@@ -1,0 +1,6 @@
+@MFS.API_HostAddress = http://localhost:5026
+
+GET {{MFS.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

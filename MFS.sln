@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19C6B315-EAD1-4D29-BDD1-58488754FC2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFS.API", "src\MFS.API\MFS.API.csproj", "{A7DDFEE1-F63B-4169-B6F2-8093A12D402D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFS.Client", "src\MFS.Client\MFS.Client.csproj", "{1B8ABB49-9A71-49FA-A0ED-85075291E280}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{44525589-8D7D-4764-8ECE-8936E61DDF96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFS.Tests.Unit", "tests\MFS.Tests.Unit\MFS.Tests.Unit.csproj", "{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424AE8C9-E0B9-405F-BAEF-6642AC21E4A7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7DDFEE1-F63B-4169-B6F2-8093A12D402D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DDFEE1-F63B-4169-B6F2-8093A12D402D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DDFEE1-F63B-4169-B6F2-8093A12D402D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DDFEE1-F63B-4169-B6F2-8093A12D402D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B8ABB49-9A71-49FA-A0ED-85075291E280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8ABB49-9A71-49FA-A0ED-85075291E280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8ABB49-9A71-49FA-A0ED-85075291E280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8ABB49-9A71-49FA-A0ED-85075291E280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7DDFEE1-F63B-4169-B6F2-8093A12D402D} = {19C6B315-EAD1-4D29-BDD1-58488754FC2E}
+		{1B8ABB49-9A71-49FA-A0ED-85075291E280} = {19C6B315-EAD1-4D29-BDD1-58488754FC2E}
+		{1EC5674E-1E5D-43AC-ABAE-5B609CB29B41} = {44525589-8D7D-4764-8ECE-8936E61DDF96}
+	EndGlobalSection
+EndGlobal
