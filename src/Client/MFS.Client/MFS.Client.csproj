@@ -10,6 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
+    <PackageReference Include="Radzen.Blazor" Version="4.25.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\MFS.Shared\MFS.Shared.csproj" />
+    <ProjectReference Include="..\MFS.Client.Application\MFS.Client.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

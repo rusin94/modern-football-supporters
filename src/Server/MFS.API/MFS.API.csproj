@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MFS.Client\MFS.Client.csproj" />
+    <ProjectReference Include="..\..\Client\MFS.Client\MFS.Client.csproj" />
+    <ProjectReference Include="..\MFS.Application\MFS.Application.csproj" />
+    <ProjectReference Include="..\MFS.Infrastructure\MFS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,10 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<RadzenButton Text="@text" Click="@IncrementCount"></RadzenButton>
+@code {
+    string text = "Hi";
+}
 @code {
     private int currentCount = 0;
 
