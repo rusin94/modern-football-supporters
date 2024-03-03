@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Client\MFS.Client.Application\MFS.Client.Application.csproj" />
     <ProjectReference Include="..\MFS.Core\MFS.Core.csproj" />
   </ItemGroup>
 

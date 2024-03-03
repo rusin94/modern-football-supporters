@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\MFS.Shared\MFS.Shared.csproj" />
-    <ProjectReference Include="..\MFS.Client.Application\MFS.Client.Application.csproj" />
+    <ProjectReference Include="..\MFS.Client.Infrastructure\MFS.Client.Infrastructure.csproj" />
+    <ProjectReference Include="..\MFS.Shared\MFS.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
