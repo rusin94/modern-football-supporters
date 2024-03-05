@@ -17,4 +17,10 @@
     <ProjectReference Include="..\MFS.Client\MFS.Client.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
