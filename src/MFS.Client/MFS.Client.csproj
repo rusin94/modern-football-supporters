@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Shared\Error.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
     <PackageReference Include="Radzen.Blazor" Version="4.25.9" />
@@ -26,6 +30,10 @@
     <Folder Include="Extensions\" />
     <Folder Include="Shared\Components\" />
     <Folder Include="Shared\Dialogs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Shared\Error.razor" />
   </ItemGroup>
 
 </Project>
