@@ -1,5 +1,32 @@
-﻿<h3>MainLayout</h3>
-
+﻿@inherits LayoutComponentBase
+<RadzenLayout>
+    <RadzenHeader>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <RadzenSidebarToggle Click="@(() => sidebar1Expanded = !sidebar1Expanded)" />
+            <RadzenLabel Text="Modern Football Supporters" />
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="@sidebar1Expanded">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Home" Icon="home" Path="/" />
+            <RadzenPanelMenuItem Text="Aktualności" Icon="newspaper" Path="/news" />
+            <RadzenPanelMenuItem Text="Terminarz" Icon="calendar_month" Path="/schedule" />
+            <RadzenPanelMenuItem Text="Budżet" Icon="account_balance" Path="/budget" />
+            <RadzenPanelMenuItem Text="Forum" Icon="forum" Path="/communities" />
+            <RadzenPanelMenuItem Text="Chat" Icon="message" Path="/chat" />
+            <RadzenPanelMenuItem Text="Ustawienia" Icon="settings" Path="/settings" />
+        </RadzenPanelMenu>
+    </RadzenSidebar>
+    <RadzenBody>
+        <div class="rz-p-4">
+            @Body
+        </div>
+    </RadzenBody>
+    <RadzenFooter>
+        Footer
+    </RadzenFooter>
+</RadzenLayout>
+<RadzenDialog />
 @code {
-
+    bool sidebar1Expanded = true;
 }
