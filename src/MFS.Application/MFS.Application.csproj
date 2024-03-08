@@ -14,9 +14,9 @@
     <Folder Include="Configurations\" />
     <Folder Include="Enums\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Features\Articles\" />
     <Folder Include="Mappings\" />
     <Folder Include="DTOs\" />
-    <Folder Include="Features\" />
     <Folder Include="Specifications\" />
   </ItemGroup>
 
