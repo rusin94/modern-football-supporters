@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Managers\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Managers\" />
     <Folder Include="Settings\" />
     <Folder Include="Routes\" />
   </ItemGroup>

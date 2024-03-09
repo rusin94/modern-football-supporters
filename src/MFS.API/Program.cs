@@ -1,6 +1,12 @@
+using MFS.Application.Extensions;
+using MFS.Server.Infrastructure.Extensions;
+using MFS.Server.Persistence.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddApplicationLayer();
+builder.Services.AddInfrastructureLayer();
+builder.Services.AddPersistenceLayer(builder.Configuration);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 // Add services to the container.
