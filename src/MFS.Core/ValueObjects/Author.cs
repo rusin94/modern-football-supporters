@@ -1,8 +1,8 @@
 ﻿namespace MFS.Core.ValueObjects;
 
-public sealed record Author
+public sealed record Author(string Value)
 {
-    public string Value { get; }
+    public string Value { get; } = Value;
 
     public static implicit operator string(Author name)
         => name.Value;

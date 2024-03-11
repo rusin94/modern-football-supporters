@@ -1,8 +1,8 @@
 ﻿namespace MFS.Core.ValueObjects
 {
-    public record Summary
+    public record Summary(double Value1)
     {
-        public double Value { get; }
+        public double Value { get; } = Value1;
 
         public static implicit operator double(Summary name)
             => name.Value;
