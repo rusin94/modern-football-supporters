@@ -11,8 +11,8 @@ public class NewsItemEntityConfiguration : IEntityTypeConfiguration<NewsItem>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
-        builder.Property(x => x.TiTle)
-            .HasConversion(x=>x.Value, x=>new TiTle(x))
+        builder.Property(x => x.Title)
+            .HasConversion(x=>x.Value, x=>new Title(x))
             .IsRequired();
         builder.Property(x => x.Content)
             .HasConversion(x=>x.Value, x=> new Content(x))

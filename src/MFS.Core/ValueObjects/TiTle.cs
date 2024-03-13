@@ -1,12 +1,12 @@
 ﻿namespace MFS.Core.ValueObjects;
 
-public sealed record TiTle(string Value)
+public sealed record Title(string Value)
 {
     public string Value { get; } = Value;
 
-    public static implicit operator string(TiTle name)
+    public static implicit operator string(Title name)
         => name.Value;
 
-    public static implicit operator TiTle(string value)
+    public static implicit operator Title(string value)
         => new(value);
 }
