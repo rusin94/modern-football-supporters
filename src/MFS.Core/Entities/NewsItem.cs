@@ -15,4 +15,11 @@ public class NewsItem:AuditableEntity<int>
         Content = content;
         Author = author;
     }
+
+    public void Update(string requestHeader, string requestContent, string requestAuthor)
+    {
+        Title = new Title(requestHeader);
+        Content = new Content(requestContent);
+        Author = new Author(requestAuthor);
+    }
 }
