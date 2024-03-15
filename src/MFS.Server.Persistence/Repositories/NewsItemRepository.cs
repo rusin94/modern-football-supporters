@@ -1,32 +1,40 @@
 ﻿using MFS.Core.Entities;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
+using MFS.Server.Persistence.Contexts;
 
 namespace MFS.Server.Persistence.Repositories;
 
 public class NewsItemRepository : INewsItemRepository
 {
+    private readonly AppDbContext _context;
+
+    public NewsItemRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
     public NewsItem Add(NewsItem newsItem)
     {
-        throw new NotImplementedException();
+        return _context.NewsItems.Add(newsItem).Entity;
     }
 
     public NewsItem Update(NewsItem newsItem)
     {
-        throw new NotImplementedException();
+        return _context.NewsItems.Update(newsItem).Entity;
     }
 
-    public NewsItem GetById(int id)
+    public NewsItem? GetById(int id)
     {
-        throw new NotImplementedException();
+        return _context.NewsItems.SingleOrDefault(x => x.Id == id);
     }
 
     public IEnumerable<NewsItem> GetAll()
     {
-        throw new NotImplementedException();
+        return _context.NewsItems.ToList();
     }
 
-    public void Delete(int id)
+    public void Delete(NewsItem newsItem)
     {
-        throw new NotImplementedException();
+        _context.NewsItems.Remove(newsItem);
     }
 }

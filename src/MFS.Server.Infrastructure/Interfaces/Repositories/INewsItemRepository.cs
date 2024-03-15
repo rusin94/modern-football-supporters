@@ -8,6 +8,5 @@ public interface INewsItemRepository
     NewsItem Update(NewsItem newsItem);
     NewsItem GetById(int id);
     IEnumerable<NewsItem> GetAll();
-    void Delete(int id);
-
+    public void Delete(NewsItem newsItem);
 }

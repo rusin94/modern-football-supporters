@@ -5,7 +5,7 @@ namespace MFS.Server.Persistence.Contexts;
 
 public class AppDbContext :DbContext
 {
-    DbSet<NewsItem> NewsItems { get; set; }
+    public DbSet<NewsItem> NewsItems { get; set; }
     public AppDbContext(DbContextOptions options):base(options)
     {
             
