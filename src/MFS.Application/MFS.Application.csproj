@@ -15,12 +15,11 @@
     <Folder Include="Configurations\" />
     <Folder Include="Enums\" />
     <Folder Include="Features\NewsItems\Queries\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="DTOs\" />
     <Folder Include="Specifications\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
