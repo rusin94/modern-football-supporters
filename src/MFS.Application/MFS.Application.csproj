@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MFS.Core\MFS.Core.csproj" />
     <ProjectReference Include="..\MFS.Server.Infrastructure\MFS.Server.Infrastructure.csproj" />
+    <ProjectReference Include="..\MFS.Server.Persistence\MFS.Server.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

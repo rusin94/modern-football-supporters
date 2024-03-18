@@ -1,4 +1,4 @@
-﻿namespace MFS.Core.ValueObjects;
+﻿namespace MFS.Core.ValueObjects.NewsItem;
 
 public sealed record Author(string Value)
 {

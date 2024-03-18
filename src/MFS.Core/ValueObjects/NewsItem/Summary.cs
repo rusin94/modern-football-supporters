@@ -1,4 +1,4 @@
-﻿namespace MFS.Core.ValueObjects
+﻿namespace MFS.Core.ValueObjects.NewsItem
 {
     public record Summary(double Value1)
     {

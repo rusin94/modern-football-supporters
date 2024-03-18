@@ -1,5 +1,5 @@
 ﻿using MFS.Core.Common;
-using MFS.Core.ValueObjects;
+using MFS.Core.ValueObjects.NewsItem;
 
 namespace MFS.Core.Entities;
 
