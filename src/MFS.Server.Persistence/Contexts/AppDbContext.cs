@@ -6,6 +6,8 @@ namespace MFS.Server.Persistence.Contexts;
 public class AppDbContext :DbContext
 {
     public DbSet<NewsItem> NewsItems { get; set; }
+    public DbSet<Community> Communities { get; set; }
+
     public AppDbContext(DbContextOptions options):base(options)
     {
             
