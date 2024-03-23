@@ -1,5 +1,5 @@
 ﻿using MFS.Core.Entities;
-using MFS.Core.ValueObjects;
+using MFS.Core.ValueObjects.NewsItem;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
