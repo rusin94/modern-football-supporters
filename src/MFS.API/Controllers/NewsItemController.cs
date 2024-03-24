@@ -1,11 +1,12 @@
 ﻿using MediatR;
-using MFS.Application.DTOs.NewsItem;
 using MFS.Application.Features.NewsItems.Commands.AddNewsItem;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;
 
-public class NewsItemController : Controller
+[Route("api/[controller]")]
+[ApiController]
+public class NewsItemController : ControllerBase
 {
     private readonly IMediator _mediator;
 
