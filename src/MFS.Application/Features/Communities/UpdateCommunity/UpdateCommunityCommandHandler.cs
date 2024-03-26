@@ -1,20 +1,20 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 
-namespace MFS.Application.Features.Communities.EditCommunity;
+namespace MFS.Application.Features.Communities.UpdateCommunity;
 
-public class EditCommunityCommandHandler:IRequestHandler<EditCommunityCommand, int>
+public class UpdateCommunityCommandHandler:IRequestHandler<UpdateCommunityCommand, int>
 {
     private readonly ICommunityRepository _communityRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public EditCommunityCommandHandler(ICommunityRepository communityRepository, IUnitOfWork unitOfWork)
+    public UpdateCommunityCommandHandler(ICommunityRepository communityRepository, IUnitOfWork unitOfWork)
     {
         _communityRepository = communityRepository;
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<int> Handle(EditCommunityCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(UpdateCommunityCommand request, CancellationToken cancellationToken)
     {
         var community = await _communityRepository.GetByIdAsync(request.Id);
         if (community == null)

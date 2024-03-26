@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace MFS.Application.Features.Communities.EditCommunity;
+namespace MFS.Application.Features.Communities.UpdateCommunity;
 
-public record EditCommunityCommand : IRequest<int>
+public record UpdateCommunityCommand : IRequest<int>
 {
     public int Id { get; init; }
     public string Name { get; init; }

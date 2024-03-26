@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using MFS.Application.Features.NewsItems.Commands.AddNewsItem;
+using MFS.Application.Features.NewsItems.Commands.DeleteNewsItem;
+using MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;
@@ -20,5 +22,19 @@ public class NewsItemController : ControllerBase
     {
         var result =  await _mediator.Send(command);
         return Ok(result);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateNewsItem(UpdateNewsItemCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteNewsItem(DeleteNewsItemCommand command)
+    {
+        await _mediator.Send(command);
+        return Ok();
     }
 }

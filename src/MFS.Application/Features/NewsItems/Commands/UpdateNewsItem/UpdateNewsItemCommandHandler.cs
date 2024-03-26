@@ -1,19 +1,19 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 
-namespace MFS.Application.Features.NewsItems.Commands.EditNewsItem;
+namespace MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
 
-public class EditNewsItemCommandHandler : IRequestHandler<EditNewsItemCommand, int>
+public class UpdateNewsItemCommandHandler : IRequestHandler<UpdateNewsItemCommand, int>
 {
     private readonly INewsItemRepository _newsItemRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public EditNewsItemCommandHandler(INewsItemRepository newsItemRepository, IUnitOfWork unitOfWork)
+    public UpdateNewsItemCommandHandler(INewsItemRepository newsItemRepository, IUnitOfWork unitOfWork)
     {
         _newsItemRepository = newsItemRepository;
         _unitOfWork = unitOfWork;
     }
-    public async Task<int> Handle(EditNewsItemCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(UpdateNewsItemCommand request, CancellationToken cancellationToken)
     {
         var newsItem = _newsItemRepository.GetById(request.Id);
         newsItem.Update(request.Header, request.Content, request.Author);

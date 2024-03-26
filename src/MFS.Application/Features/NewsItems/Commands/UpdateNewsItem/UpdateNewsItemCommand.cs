@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace MFS.Application.Features.NewsItems.Commands.EditNewsItem;
+namespace MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
 
-public class EditNewsItemCommand:IRequest<int>
+public class UpdateNewsItemCommand:IRequest<int>
 {
     public int Id { get; init; }
     public string Header { get; init; }

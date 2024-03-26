@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using MFS.Application.Features.Communities.CreateCommunity;
 using MFS.Application.Features.Communities.DeleteCommunity;
-using MFS.Application.Features.Communities.EditCommunity;
+using MFS.Application.Features.Communities.UpdateCommunity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;
@@ -24,8 +24,8 @@ public class CommunityController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> EditCommunity(EditCommunityCommand command)
+    [HttpPut]
+    public async Task<IActionResult> UpdateCommunity(UpdateCommunityCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);
