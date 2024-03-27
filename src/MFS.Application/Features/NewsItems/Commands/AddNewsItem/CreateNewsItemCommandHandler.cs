@@ -10,19 +10,19 @@ using MFS.Server.Infrastructure.Interfaces.Repositories;
 
 namespace MFS.Application.Features.NewsItems.Commands.AddNewsItem
 {
-    public class AddNewsItemCommandHandler:IRequestHandler<AddNewsItemCommand, int>
+    public class CreateNewsItemCommandHandler:IRequestHandler<CreateNewsItemCommand, int>
     {
         private readonly INewsItemRepository _newsItemRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AddNewsItemCommandHandler(INewsItemRepository newsItemRepository, IUnitOfWork unitOfWork)
+        public CreateNewsItemCommandHandler(INewsItemRepository newsItemRepository, IUnitOfWork unitOfWork)
         {
             _newsItemRepository = newsItemRepository;
             _unitOfWork = unitOfWork;
         }
-        public async Task<int> Handle(AddNewsItemCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateNewsItemCommand request, CancellationToken cancellationToken)
         {
-            var newsItem = new NewsItem(request.Header, request.Content, request.Author);
+            var newsItem = new NewsItem(request.Dto.Header, request.Dto.Content, request.Dto.Author);
             var entity = _newsItemRepository.Add(newsItem);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return entity.Id;

@@ -18,7 +18,7 @@ public class NewsItemController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateNewsItem(AddNewsItemCommand command)
+    public async Task<IActionResult> CreateNewsItem(CreateNewsItemCommand command)
     {
         var result =  await _mediator.Send(command);
         return Ok(result);
