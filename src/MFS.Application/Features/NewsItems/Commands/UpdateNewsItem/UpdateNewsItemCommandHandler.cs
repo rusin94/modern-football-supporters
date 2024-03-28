@@ -15,8 +15,8 @@ public class UpdateNewsItemCommandHandler : IRequestHandler<UpdateNewsItemComman
     }
     public async Task<int> Handle(UpdateNewsItemCommand request, CancellationToken cancellationToken)
     {
-        var newsItem = _newsItemRepository.GetById(request.Id);
-        newsItem.Update(request.Header, request.Content, request.Author);
+        var newsItem = _newsItemRepository.GetById(request.Dto.Id);
+        newsItem.Update(request.Dto.Header, request.Dto.Content, request.Dto.Author);
         _newsItemRepository.Update(newsItem);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return newsItem.Id;

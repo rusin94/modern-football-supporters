@@ -8,8 +8,11 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Managers\" />
     <Folder Include="Settings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MFS.Application\MFS.Application.csproj" />
   </ItemGroup>
 
 </Project>

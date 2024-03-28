@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <Folder Include="Configurations\" />
+    <Folder Include="DTOs\" />
     <Folder Include="Enums\" />
     <Folder Include="Features\NewsItems\Queries\" />
     <Folder Include="Specifications\" />
