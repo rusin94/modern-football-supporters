@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using MFS.Application.Features.NewsItems.Commands.AddNewsItem;
+using MFS.Application.Features.NewsItems.Commands.CreateNewsItem;
 using MFS.Application.Features.NewsItems.Commands.DeleteNewsItem;
 using MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
 using Microsoft.AspNetCore.Mvc;

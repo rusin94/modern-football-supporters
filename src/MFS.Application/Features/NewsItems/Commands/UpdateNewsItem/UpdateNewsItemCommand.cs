@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MFS.Shared.Dto.NewsItems;
 
 namespace MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
 

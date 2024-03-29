@@ -1,4 +1,4 @@
-﻿namespace MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
+﻿namespace MFS.Shared.Dto.NewsItems;
 
 public record NewsItemUpdateDto
 {

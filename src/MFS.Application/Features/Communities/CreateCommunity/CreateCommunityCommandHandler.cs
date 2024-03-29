@@ -19,8 +19,8 @@ public class CreateCommunityCommandHandler: IRequestHandler<CreateCommunityComma
     {
         var community = new Community
         {
-            Name = request.Name,
-            Description = request.Description
+            Name = request.Dto.Name,
+            Description = request.Dto.Description
         };
 
         var result = _communityRepository.Create(community);

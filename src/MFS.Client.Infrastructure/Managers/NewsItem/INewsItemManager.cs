@@ -1,5 +1,4 @@
-﻿using MFS.Application.Features.NewsItems.Commands.AddNewsItem;
-using MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
+﻿using MFS.Shared.Dto.NewsItems;
 
 namespace MFS.Client.Infrastructure.Managers.NewsItem;
 

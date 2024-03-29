@@ -2,7 +2,4 @@
 
 namespace MFS.Application.Features.Communities.DeleteCommunity;
 
-public record DeleteCommunityCommand :IRequest
-{
-    public int Id { get; init; }
-}
+public record DeleteCommunityCommand(int Id) :IRequest;
