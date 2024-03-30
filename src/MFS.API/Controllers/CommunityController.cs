@@ -8,33 +8,27 @@ namespace MFS.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CommunityController : ControllerBase
+public class CommunityController : ApiControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public CommunityController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
 
     [HttpPost]
     public async Task<IActionResult> CreateCommunity(CreateCommunityCommand command)
     {
-        var result = await _mediator.Send(command);
+        var result = await DispatchAsync(command);
         return Ok(result);
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateCommunity(UpdateCommunityCommand command)
     {
-        var result = await _mediator.Send(command);
+        var result = await DispatchAsync(command);
         return Ok(result);
     }
 
     [HttpDelete]
     public async Task<IActionResult> DeleteCommunity(DeleteCommunityCommand command)
     {
-        await _mediator.Send(command);
+        await DispatchAsync(command);
         return Ok();
     }
 

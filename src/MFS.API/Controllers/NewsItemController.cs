@@ -8,33 +8,27 @@ namespace MFS.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class NewsItemController : ControllerBase
+public class NewsItemController : ApiControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public NewsItemController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
 
     [HttpPost]
     public async Task<IActionResult> CreateNewsItem(CreateNewsItemCommand command)
     {
-        var result =  await _mediator.Send(command);
+        var result =  await DispatchAsync(command);
         return Ok(result);
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateNewsItem(UpdateNewsItemCommand command)
     {
-        var result = await _mediator.Send(command);
+        var result = await DispatchAsync(command);
         return Ok(result);
     }
 
     [HttpDelete]
     public async Task<IActionResult> DeleteNewsItem(DeleteNewsItemCommand command)
     {
-        await _mediator.Send(command);
+        await DispatchAsync(command);
         return Ok();
     }
 }
