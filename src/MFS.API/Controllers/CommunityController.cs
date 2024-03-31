@@ -1,5 +1,4 @@
-﻿using MediatR;
-using MFS.Application.Features.Communities.CreateCommunity;
+﻿using MFS.Application.Features.Communities.CreateCommunity;
 using MFS.Application.Features.Communities.DeleteCommunity;
 using MFS.Application.Features.Communities.UpdateCommunity;
 using Microsoft.AspNetCore.Mvc;

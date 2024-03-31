@@ -1,4 +1,6 @@
-﻿using MFS.Server.Persistence.Contexts;
+﻿using MFS.Server.Infrastructure.Interfaces.Repositories;
+using MFS.Server.Persistence.Contexts;
+using MFS.Server.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,9 @@ public static class ServiceExtension
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("MFSContext")));
 
+        services.AddScoped<ICommunityRepository, CommunityRepository>();
+        services.AddScoped<INewsItemRepository, NewsItemRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }

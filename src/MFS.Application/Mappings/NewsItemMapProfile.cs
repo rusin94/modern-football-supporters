@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using MFS.Application.DTOs.NewsItem;
 using MFS.Core.Entities;
+using MFS.Shared.Dto.NewsItems;
 
 namespace MFS.Application.Mappings;
 
