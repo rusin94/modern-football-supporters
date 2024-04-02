@@ -2,6 +2,7 @@
 
 public static class NewsItemEndpoints
 {
+    public static string GetNewsItems = "api/newsitem";
     public static string GetNewsItemById(int id) => $"api/newsitem/{id}";
     public static string CreateNewsItem = "api/newsitem";
     public static string UpdateNewsItem = "api/newsitem";

@@ -28,4 +28,9 @@ public class NewsItemManager : INewsItemManager
     {
         await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id), cancellationToken);
     }
+
+    public async Task<IEnumerable<NewsItemDto>?> GetNewsItemAsync(CancellationToken cancellationToken)
+    {
+        return await _httpClient.GetFromJsonAsync<IEnumerable<NewsItemDto>>(NewsItemEndpoints.GetNewsItems, cancellationToken: cancellationToken);
+    }
 }
