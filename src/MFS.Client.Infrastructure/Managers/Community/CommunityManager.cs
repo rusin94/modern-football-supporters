@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Routes;
 using MFS.Shared.Dto.Communities;
 
@@ -6,11 +7,13 @@ namespace MFS.Client.Infrastructure.Managers.Community;
 
 public class CommunityManager:ICommunityManager
 {
+    private readonly IHttpClientFactory _httpClientFactory;
     private readonly HttpClient _httpClient;
 
-    public CommunityManager(HttpClient httpClient)
+    public CommunityManager(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClient;
+        _httpClientFactory = httpClientFactory;
+        _httpClient = _httpClientFactory.CreateClient(SettingsExtension.ClientName);
     }
     public async Task<int> CreateCommunityAsync(CommunityCreateDto dto, CancellationToken cancellationToken)
     {

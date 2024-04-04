@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Routes;
 using MFS.Shared.Dto.NewsItems;
 
@@ -6,11 +7,13 @@ namespace MFS.Client.Infrastructure.Managers.NewsItem;
 
 public class NewsItemManager : INewsItemManager
 {
+    private readonly IHttpClientFactory _httpClientFactory;
     private readonly HttpClient _httpClient;
 
-    public NewsItemManager(HttpClient httpClient)
+    public NewsItemManager(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClient;
+        _httpClientFactory = httpClientFactory;
+        _httpClient = _httpClientFactory.CreateClient(SettingsExtension.ClientName);
     }
 
     public async Task<int> CreateNewsItemAsync(NewsItemCreateDto dto, CancellationToken cancellationToken)
@@ -31,6 +34,6 @@ public class NewsItemManager : INewsItemManager
 
     public async Task<IEnumerable<NewsItemDto>?> GetNewsItemAsync(CancellationToken cancellationToken)
     {
-        return await _httpClient.GetFromJsonAsync<IEnumerable<NewsItemDto>>(NewsItemEndpoints.GetNewsItems, cancellationToken: cancellationToken);
+        return await _httpClient.GetFromJsonAsync<IEnumerable<NewsItemDto>?>(NewsItemEndpoints.GetNewsItems, cancellationToken: cancellationToken);
     }
 }

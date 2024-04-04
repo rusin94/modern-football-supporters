@@ -1,18 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Globalization;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection;
+using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Managers;
 
 namespace MFS.Client.Extensions;
 
 public static class WebAssemblyHostBuilderExtensions
 {
-    private const string ClientName = "MFS.API";
 
     public static WebAssemblyHostBuilder AddRootComponents(this WebAssemblyHostBuilder builder)
     {
@@ -25,13 +19,14 @@ public static class WebAssemblyHostBuilderExtensions
     {
         builder.Services
             .AddManagers()
-            .AddHttpClient(ClientName, client =>
+            .AddHttpClient(SettingsExtension.ClientName, client =>
             {
                 client.DefaultRequestHeaders.AcceptLanguage.Clear();
                 client.DefaultRequestHeaders.AcceptLanguage.ParseAdd(CultureInfo.DefaultThreadCurrentCulture
                     ?.TwoLetterISOLanguageName);
                 client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
             });
+            Console.WriteLine(builder.HostEnvironment.BaseAddress);
         return builder;
     }
     public static IServiceCollection AddManagers(this IServiceCollection services)
