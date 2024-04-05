@@ -9,4 +9,5 @@ public interface INewsItemRepository
     NewsItem GetById(int id);
     IEnumerable<NewsItem> GetAll();
     public void Delete(NewsItem newsItem);
+    Task<IEnumerable<NewsItem>> GetAllAsync();
 }

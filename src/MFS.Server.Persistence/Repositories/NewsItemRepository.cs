@@ -1,6 +1,7 @@
 ﻿using MFS.Core.Entities;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 using MFS.Server.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace MFS.Server.Persistence.Repositories;
 
@@ -36,5 +37,10 @@ public class NewsItemRepository : INewsItemRepository
     public void Delete(NewsItem newsItem)
     {
         _context.NewsItems.Remove(newsItem);
+    }
+
+    public async Task<IEnumerable<NewsItem>> GetAllAsync()
+    {
+        return await _context.NewsItems.ToListAsync();
     }
 }

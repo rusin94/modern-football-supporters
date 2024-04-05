@@ -2,6 +2,7 @@
 using MFS.Application.Features.NewsItems.Commands.CreateNewsItem;
 using MFS.Application.Features.NewsItems.Commands.DeleteNewsItem;
 using MFS.Application.Features.NewsItems.Commands.UpdateNewsItem;
+using MFS.Application.Features.NewsItems.Queries.GetNewsItems;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;
@@ -30,5 +31,12 @@ public class NewsItemController : ApiControllerBase
     {
         await DispatchAsync(command);
         return Ok();
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetNewsItems()
+    {
+        var result = await DispatchAsync(new GetNewsItemsQuery());
+        return Ok(result);
     }
 }
