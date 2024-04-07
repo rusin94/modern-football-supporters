@@ -2,11 +2,11 @@
 <RadzenLayout>
     <RadzenHeader>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
-            <RadzenSidebarToggle Click="@(() => sidebar1Expanded = !sidebar1Expanded)" />
+            <RadzenSidebarToggle Click="@(() => _sidebarExpanded = !_sidebarExpanded)" />
             <RadzenLabel Text="Modern Football Supporters" />
         </RadzenStack>
     </RadzenHeader>
-    <RadzenSidebar @bind-Expanded="@sidebar1Expanded">
+    <RadzenSidebar @bind-Expanded="@_sidebarExpanded">
         <RadzenPanelMenu>
             <RadzenPanelMenuItem Text="Home" Icon="home" Path="/" />
             <RadzenPanelMenuItem Text="Aktualności" Icon="newspaper" Path="/news" />
@@ -15,7 +15,13 @@
             <RadzenPanelMenuItem Text="Forum" Icon="forum" Path="/communities" />
             <RadzenPanelMenuItem Text="Chat" Icon="message" Path="/chat" />
             <RadzenPanelMenuItem Text="Ustawienia" Icon="settings" Path="/settings" />
-            <RadzenPanelMenuItem Text="Zarządzanie" Icon="dataset" Path="/management"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Zarządzanie" Icon="dataset">
+                <RadzenPanelMenuItem Text="Dashboard" Path="/management/dashboard"></RadzenPanelMenuItem>
+                <RadzenPanelMenuItem Text="Aktualności" Path="/management/newsitems"></RadzenPanelMenuItem>
+                <RadzenPanelMenuItem Text="Wydarzenia" Path="/management/sport-events"></RadzenPanelMenuItem>
+                <RadzenPanelMenuItem Text="Społeczności" Path="/management/communities"></RadzenPanelMenuItem>
+                <RadzenPanelMenuItem Text="Użytkownicy" Path="/management/users"></RadzenPanelMenuItem>
+            </RadzenPanelMenuItem>
         </RadzenPanelMenu>
     </RadzenSidebar>
     <RadzenBody>
@@ -29,5 +35,5 @@
 </RadzenLayout>
 <RadzenDialog />
 @code {
-    bool sidebar1Expanded = true;
+    bool _sidebarExpanded = true;
 }

@@ -2,16 +2,15 @@
 using MFS.Shared.Dto.NewsItems;
 using Microsoft.AspNetCore.Components;
 
-namespace MFS.Client.Pages
+namespace MFS.Client.Pages;
+
+public partial class News
 {
-    public partial class News
+    [Inject] private INewsItemManager _newsItemManager { get; set; }
+    public IEnumerable<NewsItemDto> NewsItemDtos { get; set; }
+    protected override async Task OnInitializedAsync()
     {
-        [Inject] private INewsItemManager _newsItemManager { get; set; }
-        public IEnumerable<NewsItemDto> NewsItemDtos { get; set; }
-        protected override async Task OnInitializedAsync()
-        {
-            var result = await _newsItemManager.GetNewsItemAsync(CancellationToken.None);
-            await base.OnInitializedAsync();
-        }
+        var result = await _newsItemManager.GetNewsItemAsync(CancellationToken.None);
+        await base.OnInitializedAsync();
     }
 }
