@@ -10,7 +10,6 @@ public partial class News
     public IEnumerable<NewsItemDto> NewsItemDtos { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        var result = await _newsItemManager.GetNewsItemAsync(CancellationToken.None);
         await base.OnInitializedAsync();
     }
 }

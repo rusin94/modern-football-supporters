@@ -7,33 +7,31 @@ namespace MFS.Client.Infrastructure.Managers.NewsItem;
 
 public class NewsItemManager : INewsItemManager
 {
-    private readonly IHttpClientFactory _httpClientFactory;
     private readonly HttpClient _httpClient;
 
     public NewsItemManager(IHttpClientFactory httpClientFactory)
     {
-        _httpClientFactory = httpClientFactory;
-        _httpClient = _httpClientFactory.CreateClient(SettingsExtension.ClientName);
+        _httpClient = httpClientFactory.CreateClient(SettingsExtension.ClientName);
     }
 
-    public async Task<int> CreateNewsItemAsync(NewsItemCreateDto dto, CancellationToken cancellationToken)
+    public async Task<int> CreateNewsItemAsync(NewsItemCreateDto dto)
     {
-        var result = await _httpClient.PostAsJsonAsync(NewsItemEndpoints.CreateNewsItem, dto, cancellationToken);
-        return await result.Content.ReadFromJsonAsync<int>(cancellationToken: cancellationToken);
+        var result = await _httpClient.PostAsJsonAsync(NewsItemEndpoints.CreateNewsItem, dto);
+        return await result.Content.ReadFromJsonAsync<int>();
     }
 
-    public async Task UpdateNewsItemAsync(NewsItemUpdateDto dto, CancellationToken cancellationToken)
+    public async Task UpdateNewsItemAsync(NewsItemUpdateDto dto)
     {
-        await _httpClient.PutAsJsonAsync(NewsItemEndpoints.UpdateNewsItem, dto, cancellationToken);
+        await _httpClient.PutAsJsonAsync(NewsItemEndpoints.UpdateNewsItem, dto);
     }
 
-    public async Task DeleteNewsItemAsync(int id, CancellationToken cancellationToken)
+    public async Task DeleteNewsItemAsync(int id)
     {
-        await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id), cancellationToken);
+        await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id));
     }
 
-    public async Task<IEnumerable<NewsItemDto>?> GetNewsItemAsync(CancellationToken cancellationToken)
+    public async Task<List<NewsItemDto>> GetNewsItemAsync()
     {
-        return await _httpClient.GetFromJsonAsync<IEnumerable<NewsItemDto>?>(NewsItemEndpoints.GetNewsItems, cancellationToken: cancellationToken);
+        return await _httpClient.GetFromJsonAsync<List<NewsItemDto>>(NewsItemEndpoints.GetNewsItems);
     }
 }

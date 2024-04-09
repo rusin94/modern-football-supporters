@@ -4,9 +4,9 @@ namespace MFS.Client.Infrastructure.Managers.NewsItem;
 
 public interface INewsItemManager :IManager
 {
-    Task<int> CreateNewsItemAsync(NewsItemCreateDto dto, CancellationToken cancellationToken);
-    Task UpdateNewsItemAsync(NewsItemUpdateDto dto, CancellationToken cancellationToken);
-    Task DeleteNewsItemAsync(int id, CancellationToken cancellationToken);
-    Task<IEnumerable<NewsItemDto>?> GetNewsItemAsync(CancellationToken cancellationToken);
+    Task<int> CreateNewsItemAsync(NewsItemCreateDto dto);
+    Task UpdateNewsItemAsync(NewsItemUpdateDto dto);
+    Task DeleteNewsItemAsync(int id);
+    Task<List<NewsItemDto>> GetNewsItemAsync();
     
 }
