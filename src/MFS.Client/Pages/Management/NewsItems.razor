@@ -1,6 +1,17 @@
 ﻿@page "/management/newsitems"
 
-<h3>NewsItems</h3>
+<RadzenText TextStyle="TextStyle.H3">Zarządzanie aktualnoścami</RadzenText>
+
+<RadzenDataGrid @ref="grid" KeyProperty="Id" Data="NewsItemDtos">
+    <HeaderTemplate>
+        <RadzenButton Icon="add" Text="Dodaj" Click="@(() => AddNewsItem())"/>
+    </HeaderTemplate>
+    <Columns>
+        <RadzenDataGridColumn T="NewsItemDto" Property="Id" Title="Id"/>
+        <RadzenDataGridColumn T="NewsItemDto" Property="Title" Title="Tytuł"/>
+        <RadzenDataGridColumn T="NewsItemDto" Property="Content" Title="Treść"/>
+    </Columns>
+</RadzenDataGrid>
 
 @code {
 
