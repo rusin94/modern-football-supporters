@@ -31,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Shared\Components\" />
-    <Folder Include="Shared\Dialogs\" />
   </ItemGroup>
 
   <ItemGroup>
