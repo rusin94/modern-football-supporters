@@ -2,7 +2,7 @@
 
 public record NewsItemCreateDto
 {
-    public string Header { get; init; }
-    public string Content { get; init; }
-    public string Author { get; init; }
+    public string Header { get; set; }
+    public string Content { get; set; }
+    public string Author { get; set; }
 }

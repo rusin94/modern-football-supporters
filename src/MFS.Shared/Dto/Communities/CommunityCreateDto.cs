@@ -2,6 +2,6 @@
 
 public record CommunityCreateDto
 {
-    public string Name { get; init; }
-    public string Description { get; init; }
+    public string Name { get; set; }
+    public string Description { get; set; }
 }

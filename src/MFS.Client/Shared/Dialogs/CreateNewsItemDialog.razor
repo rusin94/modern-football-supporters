@@ -1,8 +1,22 @@
-﻿<RadzenText TextStyle="TextStyle.H6"></RadzenText>
+﻿@using MFS.Shared.Dto.NewsItems
 
-<EditForm Model="NewsItemCreateDto" OnSubmit="Submit">
 
-</EditForm>
+<RadzenTemplateForm Data="NewsItemCreateDto" Submit="@((NewsItemCreateDto dto) => Submit(dto))">
+    <RadzenFieldset Text="Dodaj news">
+        <RadzenStack Gap="1rem">
+            <RadzenFormField Text="Nagłówek">
+                <RadzenTextBox @bind-Value="NewsItemCreateDto.Header"></RadzenTextBox>
+            </RadzenFormField>
+            <RadzenFormField Text="Treść">
+                <RadzenTextArea Rows="5" @bind-Value="NewsItemCreateDto.Content"></RadzenTextArea>
+            </RadzenFormField>
+        </RadzenStack>
+        <RadzenStack Orientation="Orientation.Vertical">
+            <RadzenButton ButtonType="ButtonType.Submit" Text="Dodaj" />
+            <RadzenButton ButtonType="ButtonType.Button" Text="Anuluj" Click="@Cancel"></RadzenButton>
+        </RadzenStack>
+    </RadzenFieldset>
+</RadzenTemplateForm>
 @code {
 
 }
