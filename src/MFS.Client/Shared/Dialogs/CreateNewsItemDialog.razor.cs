@@ -16,7 +16,7 @@ public partial class CreateNewsItemDialog
     public async Task Submit(NewsItemCreateDto dto)
     {
         await _newsItemManager.CreateNewsItemAsync(dto);
-        _dialogService.Close();
+        _dialogService.Close(true);
     }
 
     private void Cancel()

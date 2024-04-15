@@ -2,6 +2,7 @@
 using System.Globalization;
 using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Managers;
+using Radzen;
 
 namespace MFS.Client.Extensions;
 
@@ -11,7 +12,7 @@ public static class WebAssemblyHostBuilderExtensions
     public static WebAssemblyHostBuilder AddRootComponents(this WebAssemblyHostBuilder builder)
     {
         builder.RootComponents.Add<App>("#app");
-
+        builder.Services.AddRadzenComponents();
         return builder;
     }
 

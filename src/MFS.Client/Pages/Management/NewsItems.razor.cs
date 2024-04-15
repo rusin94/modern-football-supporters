@@ -10,8 +10,12 @@ namespace MFS.Client.Pages.Management;
 public partial class NewsItems
 {
     private RadzenDataGrid<NewsItemDto> grid;
-    [Inject] private INewsItemManager _newsItemManager { get; set; }
-    [Inject] private DialogService _dialogService { get; set; }
+    [Inject] 
+    private INewsItemManager _newsItemManager { get; set; }
+    [Inject] 
+    private DialogService _dialogService { get; set; }
+    [Inject] 
+    private NotificationService _notificationService { get; set; }
     public List<NewsItemDto> NewsItemDtos { get; set; }
 
 
@@ -23,6 +27,14 @@ public partial class NewsItems
 
     private async Task AddNewsItem()
     {
-        await _dialogService.OpenAsync<CreateNewsItemDialog>("Create News Item");
+        var result = await _dialogService.OpenAsync<CreateNewsItemDialog>("Create News Item");
+        if (result)
+        {
+            _notificationService.Notify((new NotificationMessage
+            {
+                Severity = NotificationSeverity.Success, Summary = "Success Summary", Detail = "Success Detail",
+                Duration = 4000
+            }));
+        }
     }
 }
