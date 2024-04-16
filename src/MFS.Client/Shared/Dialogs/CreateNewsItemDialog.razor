@@ -5,15 +5,18 @@
     <RadzenFieldset Text="Dodaj news">
         <RadzenStack Gap="1rem">
             <RadzenFormField Text="Nagłówek">
-                <RadzenTextBox @bind-Value="NewsItemCreateDto.Header"></RadzenTextBox>
+                <RadzenTextBox @bind-Value="NewsItemCreateDto.Header"/>
             </RadzenFormField>
             <RadzenFormField Text="Treść">
-                <RadzenTextArea Rows="5" @bind-Value="NewsItemCreateDto.Content"></RadzenTextArea>
+                <RadzenTextArea Rows="5" @bind-Value="NewsItemCreateDto.Content"/>
+            </RadzenFormField>
+            <RadzenFormField Text="Autor">
+                <RadzenTextBox @bind-Value="NewsItemCreateDto.Author" />
             </RadzenFormField>
         </RadzenStack>
-        <RadzenStack Orientation="Orientation.Vertical">
-            <RadzenButton ButtonType="ButtonType.Submit" Text="Dodaj" />
-            <RadzenButton ButtonType="ButtonType.Button" Text="Anuluj" Click="@Cancel"></RadzenButton>
+        <RadzenStack Orientation="Orientation.Horizontal" Class="rz-mt-3">
+            <RadzenButton ButtonType="ButtonType.Submit" ButtonStyle="ButtonStyle.Primary" Text="Dodaj" />
+            <RadzenButton ButtonType="ButtonType.Button" Text="Anuluj" ButtonStyle="ButtonStyle.Danger" Click="@Cancel"></RadzenButton>
         </RadzenStack>
     </RadzenFieldset>
 </RadzenTemplateForm>
