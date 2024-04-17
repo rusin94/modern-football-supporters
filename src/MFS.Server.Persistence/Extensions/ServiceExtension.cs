@@ -1,5 +1,6 @@
 ﻿using MFS.Server.Infrastructure.Interfaces.Repositories;
 using MFS.Server.Persistence.Contexts;
+using MFS.Server.Persistence.Interceptors;
 using MFS.Server.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,7 @@ public static class ServiceExtension
 {
     public static IServiceCollection AddPersistenceLayer(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<AuditableEntitySaveChangesInterceptor>();
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("MFSContext")));
 
