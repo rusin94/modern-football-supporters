@@ -2,6 +2,7 @@
 using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Routes;
 using MFS.Shared.Dto.NewsItems;
+using MFS.Shared.Wrapper;
 
 namespace MFS.Client.Infrastructure.Managers.NewsItem;
 
@@ -30,8 +31,10 @@ public class NewsItemManager : INewsItemManager
         await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id));
     }
 
-    public async Task<List<NewsItemDto>> GetNewsItemAsync()
+    public async Task<IResult<List<NewsItemDto>>> GetNewsItemAsync()
     {
-        return await _httpClient.GetFromJsonAsync<List<NewsItemDto>>(NewsItemEndpoints.GetNewsItems);
+        var response =  await _httpClient.GetAsync(NewsItemEndpoints.GetNewsItems);
+        return await response.ToResult<List<NewsItemDto>>();
+
     }
 }
