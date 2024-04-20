@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  mfs:
+    build:
+      context: .
+      dockerfile: src/MFS.API/Dockerfile
+      volumes:
+        - ~/.aspnet/https:/https:ro
+    ports:
+          - "8080:8080"
+          - "8081:8081"
+    depends_on:
+      - mssql
+    restart: on-failure
+    container_name: mfs
+    
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "Your_Password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
