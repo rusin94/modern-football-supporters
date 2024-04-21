@@ -15,20 +15,22 @@ public class NewsItemManager : INewsItemManager
         _httpClient = httpClientFactory.CreateClient(SettingsExtension.ClientName);
     }
 
-    public async Task<int> CreateNewsItemAsync(NewsItemCreateDto dto)
+    public async Task<IResult<int>> CreateNewsItemAsync(NewsItemCreateDto dto)
     {
-        var result = await _httpClient.PostAsJsonAsync(NewsItemEndpoints.CreateNewsItem, dto);
-        return await result.Content.ReadFromJsonAsync<int>();
+        var response = await _httpClient.PostAsJsonAsync(NewsItemEndpoints.CreateNewsItem, dto);
+        return await response.ToResult<int>();
     }
 
-    public async Task UpdateNewsItemAsync(NewsItemUpdateDto dto)
+    public async Task<IResult<int>> UpdateNewsItemAsync(NewsItemUpdateDto dto)
     {
-        await _httpClient.PutAsJsonAsync(NewsItemEndpoints.UpdateNewsItem, dto);
+        var response = await _httpClient.PutAsJsonAsync(NewsItemEndpoints.UpdateNewsItem, dto);
+        return await response.ToResult<int>();
     }
 
-    public async Task DeleteNewsItemAsync(int id)
+    public async Task<IResult<int>> DeleteNewsItemAsync(int id)
     {
-        await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id));
+        var result = await _httpClient.DeleteAsync(NewsItemEndpoints.DeleteNewsItem(id));
+        return await result.ToResult<int>();
     }
 
     public async Task<IResult<List<NewsItemDto>>> GetNewsItemAsync()

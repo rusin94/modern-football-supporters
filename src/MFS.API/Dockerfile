@@ -12,9 +12,8 @@ COPY ["src/MFS.Server.Infrastructure/MFS.Server.Infrastructure.csproj", "src/MFS
 COPY ["src/MFS.Server.Persistence/MFS.Server.Persistence.csproj", "src/MFS.Persistence/"]
 COPY ["src/MFS.Application/MFS.Application.csproj", "src/MFS.Application/"]
 COPY ["src/MFS.Domain/MFS.Domain.csproj", "src/MFS.Domain/"]
-COPY ["src/MFS.Common/MFS.Common.csproj", "src/MFS.Common/"]
-COPY ["src/MFS/Client/MFS.Client.csproj", "src/MFS.Client/"]
-COPY ["src/MFS/MFS.Client.Infrastructure/MFS.Client.Infrastructure.csproj", "src/MFS/MFS.Client.Infrastructure/"]
+COPY ["src/MFS.Client/MFS.Client.csproj", "src/MFS.Client/"]
+COPY ["src/MFS.Client.Infrastructure/MFS.Client.Infrastructure.csproj", "src/MFS.Client.Infrastructure/"]
 
 RUN dotnet restore "src/MFS.API/MFS.API.csproj"
 COPY . .

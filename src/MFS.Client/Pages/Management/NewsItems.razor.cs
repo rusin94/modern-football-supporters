@@ -22,7 +22,27 @@ public partial class NewsItems
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        NewsItemDtos = await _newsItemManager.GetNewsItemAsync();
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        var result = await _newsItemManager.GetNewsItemAsync();
+        if (result.Succeeded)
+        {
+            NewsItemDtos = result.Data;
+        }
+        else
+        {
+            foreach (var message in result.Messages)
+            {
+                _notificationService.Notify((new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Error, Summary = "Błąd", Detail = message,
+                    Duration = 4000
+                }));
+            }
+        }
     }
 
     private async Task AddNewsItem()
