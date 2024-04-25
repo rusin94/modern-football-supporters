@@ -16,22 +16,19 @@ public class NewsItemController : ApiControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateNewsItem(NewsItemCreateDto dto)
     {
-        var result =  await DispatchAsync(new CreateNewsItemCommand(dto));
-        return Ok(result);
+        return await DispatchAsync(new CreateNewsItemCommand(dto));
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateNewsItem(NewsItemUpdateDto dto)
     {
-        var result = await DispatchAsync(new UpdateNewsItemCommand(dto));
-        return Ok(result);
+        return await DispatchAsync(new UpdateNewsItemCommand(dto));
     }
 
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteNewsItem(int id)
     {
-        await DispatchAsync(new DeleteNewsItemCommand(id));
-        return Ok();
+        return await DispatchAsync(new DeleteNewsItemCommand(id));
     }
 
     [HttpGet]
