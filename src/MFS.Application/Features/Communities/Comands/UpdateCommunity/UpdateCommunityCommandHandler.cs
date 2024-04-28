@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 
-namespace MFS.Application.Features.Communities.UpdateCommunity;
+namespace MFS.Application.Features.Communities.Comands.UpdateCommunity;
 
 public class UpdateCommunityCommandHandler : IRequestHandler<UpdateCommunityCommand, int>
 {

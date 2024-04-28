@@ -1,6 +1,6 @@
-﻿using MFS.Application.Features.Communities.CreateCommunity;
-using MFS.Application.Features.Communities.DeleteCommunity;
-using MFS.Application.Features.Communities.UpdateCommunity;
+﻿using MFS.Application.Features.Communities.Comands.CreateCommunity;
+using MFS.Application.Features.Communities.Comands.DeleteCommunity;
+using MFS.Application.Features.Communities.Comands.UpdateCommunity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;

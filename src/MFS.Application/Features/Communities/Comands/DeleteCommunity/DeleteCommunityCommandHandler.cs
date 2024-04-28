@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 
-namespace MFS.Application.Features.Communities.DeleteCommunity;
+namespace MFS.Application.Features.Communities.Comands.DeleteCommunity;
 
-public class DeleteCommunityCommandHandler:IRequestHandler<DeleteCommunityCommand>
+public class DeleteCommunityCommandHandler : IRequestHandler<DeleteCommunityCommand>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly ICommunityRepository _communityRepository;

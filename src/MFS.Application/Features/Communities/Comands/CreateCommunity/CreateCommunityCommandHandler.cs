@@ -2,9 +2,9 @@
 using MFS.Core.Entities;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 
-namespace MFS.Application.Features.Communities.CreateCommunity;
+namespace MFS.Application.Features.Communities.Comands.CreateCommunity;
 
-public class CreateCommunityCommandHandler: IRequestHandler<CreateCommunityCommand, int>
+public class CreateCommunityCommandHandler : IRequestHandler<CreateCommunityCommand, int>
 {
     private readonly ICommunityRepository _communityRepository;
     private readonly IUnitOfWork _unitOfWork;
