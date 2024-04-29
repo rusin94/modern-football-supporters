@@ -1,6 +1,7 @@
 ﻿using MFS.Core.Entities;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
 using MFS.Server.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace MFS.Server.Persistence.Repositories;
 
@@ -31,5 +32,10 @@ public class CommunityRepository:ICommunityRepository
     public async Task<Community> GetByIdAsync(int communityId)
     {
         return await _appDbContext.Communities.FindAsync(communityId);
+    }
+
+    public async Task<List<Community>> GetAllAsync()
+    {
+        return await _appDbContext.Communities.ToListAsync();
     }
 }

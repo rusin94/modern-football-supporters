@@ -8,4 +8,5 @@ public interface ICommunityRepository
     Community Update(Community community);
     void Delete(Community community);
     Task<Community> GetByIdAsync(int communityId);
+    Task<List<Community>> GetAllAsync();
 }
