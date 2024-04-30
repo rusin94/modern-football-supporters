@@ -1,6 +1,7 @@
 ﻿using MFS.Application.Features.Communities.Comands.CreateCommunity;
 using MFS.Application.Features.Communities.Comands.DeleteCommunity;
 using MFS.Application.Features.Communities.Comands.UpdateCommunity;
+using MFS.Application.Features.Communities.Queries.GetCommunities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MFS.API.Controllers;
@@ -26,6 +27,12 @@ public class CommunityController : ApiControllerBase
     public async Task<IActionResult> DeleteCommunity(DeleteCommunityCommand command)
     {
         return await DispatchAsync(command);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetCommunities()
+    {
+        return await DispatchAsync(new GetCommunitiesQuery());
     }
 
 }
