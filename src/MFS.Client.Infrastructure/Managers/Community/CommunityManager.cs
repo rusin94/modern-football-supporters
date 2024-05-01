@@ -2,6 +2,7 @@
 using MFS.Client.Infrastructure.Extensions;
 using MFS.Client.Infrastructure.Routes;
 using MFS.Shared.Dto.Communities;
+using MFS.Shared.Wrapper;
 
 namespace MFS.Client.Infrastructure.Managers.Community;
 
@@ -15,19 +16,28 @@ public class CommunityManager:ICommunityManager
         _httpClientFactory = httpClientFactory;
         _httpClient = _httpClientFactory.CreateClient(SettingsExtension.ClientName);
     }
-    public async Task<int> CreateCommunityAsync(CommunityCreateDto dto, CancellationToken cancellationToken)
+    public async Task<IResult<int>> CreateCommunityAsync(CommunityCreateDto dto, CancellationToken cancellationToken)
     {
-        var result = await _httpClient.PostAsJsonAsync(CommunityEndpoints.CreateCommunity, dto, cancellationToken);
-        return await result.Content.ReadFromJsonAsync<int>(cancellationToken: cancellationToken);
+        var response = await _httpClient.PostAsJsonAsync(CommunityEndpoints.CreateCommunity, dto, cancellationToken);
+        return await response.ToResult<int>();
     }
 
-    public async Task UpdateCommunityAsync(CommunityUpdateDto dto, CancellationToken cancellationToken)
+    public async Task<IResult<int>> UpdateCommunityAsync(CommunityUpdateDto dto, CancellationToken cancellationToken)
     {
-        await _httpClient.PutAsJsonAsync(CommunityEndpoints.UpdateCommunity, dto, cancellationToken);
+        var response = await _httpClient.PutAsJsonAsync(CommunityEndpoints.UpdateCommunity, dto, cancellationToken);
+        return await response.ToResult<int>();
     }
 
-    public async Task DeleteCommunityAsync(int id, CancellationToken cancellationToken)
+    public async Task<IResult<int>> DeleteCommunityAsync(int id, CancellationToken cancellationToken)
     {
-        await _httpClient.DeleteAsync(CommunityEndpoints.DeleteCommunity(id), cancellationToken);
+        var response = await _httpClient.DeleteAsync(CommunityEndpoints.DeleteCommunity(id), cancellationToken);
+        return await response.ToResult<int>();
     }
+
+    public async Task<IResult<List<CommunityDto>>> GetCommunitiesAsync(CancellationToken cancellationToken)
+    {
+        var response = await _httpClient.GetAsync(CommunityEndpoints.GetCommunities, cancellationToken);
+        return await response.ToResult<List<CommunityDto>>();
+    }
+
 }

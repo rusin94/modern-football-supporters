@@ -2,6 +2,7 @@
 {
     public static class CommunityEndpoints
     {
+        public static string GetCommunities = "api/community";
         public static string CreateCommunity = "api/community";
         public static string UpdateCommunity = "api/community";
         public static string DeleteCommunity(int id) => $"api/community/{id}";
