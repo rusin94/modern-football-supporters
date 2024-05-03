@@ -1,22 +1,19 @@
-﻿using System.Runtime.CompilerServices;
-using MFS.Client.Infrastructure.Managers.Community;
+﻿using MFS.Client.Infrastructure.Managers.Community;
 using MFS.Shared.Dto.Communities;
+using Microsoft.AspNetCore.Components;
 using Radzen;
 
 namespace MFS.Client.Pages.Management;
 
 public partial class Communities
 {
-    private readonly ICommunityManager _communityManager;
+    [Inject]
+    private ICommunityManager _communityManager { get; set; }
+
+    [Inject]
     private NotificationService _notificationService { get; set; }
     private List<CommunityDto> CommunitiesList { get; set; }
 
-
-    public Communities(ICommunityManager communityManager, NotificationService notificationService)
-    {
-        _communityManager = communityManager;
-        _notificationService = notificationService;
-    }
 
     protected override async Task OnInitializedAsync()
     {

@@ -6,7 +6,7 @@ using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.Communities.Queries.GetCommunities;
 
-public class GetCommunitiesQueryHandler : IRequestHandler<GetCommunitiesQuery, Result<List<CommunityDto>>
+public class GetCommunitiesQueryHandler : IRequestHandler<GetCommunitiesQuery, Result<List<CommunityDto>>>
 {
     private readonly IMapper _mapper;
     private readonly ICommunityRepository _communityRepository;

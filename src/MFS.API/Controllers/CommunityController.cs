@@ -30,9 +30,9 @@ public class CommunityController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetCommunities()
+    public async Task<IActionResult> GetCommunities(GetCommunitiesQuery query)
     {
-        return await DispatchAsync(new GetCommunitiesQuery());
+        return await DispatchAsync(query);
     }
 
 }

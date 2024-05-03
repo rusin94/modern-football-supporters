@@ -3,7 +3,7 @@ using MFS.Shared.Wrapper;
 
 namespace MFS.Client.Infrastructure.Managers.Community;
 
-public interface ICommunityManager
+public interface ICommunityManager : IManager
 {
     Task<IResult<int>> CreateCommunityAsync(CommunityCreateDto dto, CancellationToken cancellationToken);
     Task<IResult<int>> UpdateCommunityAsync(CommunityUpdateDto dto, CancellationToken cancellationToken);
