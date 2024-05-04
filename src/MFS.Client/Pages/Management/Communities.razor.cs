@@ -1,7 +1,9 @@
 ﻿using MFS.Client.Infrastructure.Managers.Community;
 using MFS.Shared.Dto.Communities;
+using MFS.Shared.Dto.NewsItems;
 using Microsoft.AspNetCore.Components;
 using Radzen;
+using Radzen.Blazor;
 
 namespace MFS.Client.Pages.Management;
 
@@ -13,6 +15,8 @@ public partial class Communities
     [Inject]
     private NotificationService _notificationService { get; set; }
     private List<CommunityDto> CommunitiesList { get; set; }
+
+    private RadzenDataGrid<CommunityDto> grid;
 
 
     protected override async Task OnInitializedAsync()
@@ -34,4 +38,8 @@ public partial class Communities
         }
     }
 
+    private Task AddCommunity()
+    {
+        throw new NotImplementedException();
+    }
 }

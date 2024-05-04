@@ -1,5 +1,18 @@
 ﻿@page "/management/communities"
+@using MFS.Shared.Dto.Communities
+
+
 <RadzenText Text="Społeczności" TextStyle="TextStyle.DisplayH3"/>
+<RadzenDataGrid @ref="grid" KeyProperty="Id" Data="CommunitiesList">
+    <HeaderTemplate>
+        <RadzenButton Icon="add" Text="Dodaj" Click="@(() => AddCommunity())"/>
+    </HeaderTemplate>
+    <Columns>
+        <RadzenDataGridColumn TItem="CommunityDto" Property="Id" Title="Id"/>
+        <RadzenDataGridColumn TItem="CommunityDto" Property="Name" Title="Tytuł"/>
+        <RadzenDataGridColumn TItem="CommunityDto" Property="Description" Title="Treść"/>
+    </Columns>
+</RadzenDataGrid>
 @code {
 
 }
