@@ -1,6 +1,6 @@
 ﻿using MFS.Client.Infrastructure.Managers.Community;
+using MFS.Client.Shared.Dialogs.Communities;
 using MFS.Shared.Dto.Communities;
-using MFS.Shared.Dto.NewsItems;
 using Microsoft.AspNetCore.Components;
 using Radzen;
 using Radzen.Blazor;
@@ -14,6 +14,9 @@ public partial class Communities
 
     [Inject]
     private NotificationService _notificationService { get; set; }
+
+    [Inject]
+    private DialogService _dialogService { get; set; }
     private List<CommunityDto> CommunitiesList { get; set; }
 
     private RadzenDataGrid<CommunityDto> grid;
@@ -38,8 +41,19 @@ public partial class Communities
         }
     }
 
-    private Task AddCommunity()
+    private async Task AddCommunity()
     {
-        throw new NotImplementedException();
-    }
+        var result = await _dialogService.OpenAsync<CreateCommunityDialog>("Create Community", null);
+        if (result != null)
+        {
+            _notificationService.Notify(new NotificationMessage
+            {
+                Severity = NotificationSeverity.Success,
+                Summary = "Sukces",
+                Detail = "Społeczność stworzona",
+                Duration = 4000,
+            });
+
+        }
+    }   
 }

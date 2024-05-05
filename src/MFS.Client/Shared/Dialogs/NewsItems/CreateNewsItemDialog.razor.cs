@@ -3,11 +3,11 @@ using MFS.Shared.Dto.NewsItems;
 using Microsoft.AspNetCore.Components;
 using Radzen;
 
-namespace MFS.Client.Shared.Dialogs;
+namespace MFS.Client.Shared.Dialogs.NewsItems;
 
 public partial class CreateNewsItemDialog
 {
-    [Inject] 
+    [Inject]
     private DialogService _dialogService { get; set; }
     [Inject]
     private INewsItemManager _newsItemManager { get; set; }

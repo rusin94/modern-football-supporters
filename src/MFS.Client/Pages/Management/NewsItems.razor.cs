@@ -1,5 +1,5 @@
 ﻿using MFS.Client.Infrastructure.Managers.NewsItem;
-using MFS.Client.Shared.Dialogs;
+using MFS.Client.Shared.Dialogs.NewsItems;
 using MFS.Shared.Dto.NewsItems;
 using Microsoft.AspNetCore.Components;
 using Radzen;
@@ -52,7 +52,9 @@ public partial class NewsItems
         {
             _notificationService.Notify((new NotificationMessage
             {
-                Severity = NotificationSeverity.Success, Summary = "Success Summary", Detail = "Success Detail",
+                Severity = NotificationSeverity.Success,
+                Summary = "Sukces",
+                Detail = "Dodano news",
                 Duration = 4000
             }));
         }
