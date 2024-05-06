@@ -30,7 +30,7 @@ public partial class Communities
 
     private async Task LoadData()
     {
-        var response = await _communityManager.GetCommunitiesAsync(new CancellationToken());
+        var response = await _communityManager.GetCommunitiesAsync();
         if (response.Succeeded)
         {
             CommunitiesList = response.Data;

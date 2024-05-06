@@ -5,8 +5,8 @@ namespace MFS.Client.Infrastructure.Managers.Community;
 
 public interface ICommunityManager : IManager
 {
-    Task<IResult<int>> CreateCommunityAsync(CommunityCreateDto dto, CancellationToken cancellationToken);
-    Task<IResult<int>> UpdateCommunityAsync(CommunityUpdateDto dto, CancellationToken cancellationToken);
-    Task<IResult<int>> DeleteCommunityAsync(int id, CancellationToken cancellationToken);
-    Task<IResult<List<CommunityDto>>> GetCommunitiesAsync(CancellationToken cancellationToken);
+    Task<IResult<int>> CreateCommunityAsync(CommunityCreateDto dto);
+    Task<IResult<int>> UpdateCommunityAsync(CommunityUpdateDto dto);
+    Task<IResult<int>> DeleteCommunityAsync(int id);
+    Task<IResult<List<CommunityDto>>> GetCommunitiesAsync();
 }
