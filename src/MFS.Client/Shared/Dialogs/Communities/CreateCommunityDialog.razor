@@ -3,8 +3,21 @@
 <RadzenText TextStyle="TextStyle.DisplayH3" Text="Dodaj społeczność"></RadzenText>
 
 <RadzenTemplateForm Data="CommunityCreateDto">
-    <RadzenFieldset Text="Dodaj nowa społeczność"></RadzenFieldset>
+    <RadzenFieldset Text="Dodaj nowa społeczność">
+        <RadzenStack Gap="1rem">
+            <RadzenFormField Text="Nazwa">
+                <RadzenTextBox @bind-Value="CommunityCreateDto.Name"></RadzenTextBox>
+            </RadzenFormField>
+            <RadzenFormField Text="Opis">
+                <RadzenTextArea Rows="5" @bind-Value="CommunityCreateDto.Description"></RadzenTextArea>
+            </RadzenFormField>
+        </RadzenStack>
+        <RadzenStack Orientation="Orientation.Horizontal">
+            <RadzenButton ButtonType="ButtonType.Submit" ButtonStyle="ButtonStyle.Primary" Text="Dodaj"/>
+            <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Danger" Text="Anuluj"/>
+            </RadzenStack>
+    </RadzenFieldset>
 </RadzenTemplateForm>
 @code {
 
-}
+}
