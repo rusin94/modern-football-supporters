@@ -13,8 +13,8 @@
             </RadzenFormField>
         </RadzenStack>
         <RadzenStack Orientation="Orientation.Horizontal">
-            <RadzenButton ButtonType="ButtonType.Submit" ButtonStyle="ButtonStyle.Primary" Text="Dodaj"/>
-            <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Danger" Text="Anuluj"/>
+            <RadzenButton ButtonType="ButtonType.Submit" ButtonStyle="ButtonStyle.Primary" Text="Dodaj" Click="@(args => Submit(CommunityCreateDto))"/>
+            <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Danger" Text="Anuluj" Click="@Cancel"/>
             </RadzenStack>
     </RadzenFieldset>
 </RadzenTemplateForm>

@@ -20,5 +20,10 @@ namespace MFS.Client.Shared.Dialogs.Communities
             await _communityManager.CreateCommunityAsync(dto );
             _dialogService.Close(true);
         }
+
+        public void Cancel()
+        {
+            _dialogService.Close();
+        }
     }
 }
