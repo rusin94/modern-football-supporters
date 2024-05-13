@@ -1,6 +1,5 @@
-﻿namespace MFS.Client.Pages.Authentication
+﻿namespace MFS.Client.Pages.Authentication;
+
+public partial class Register
 {
-    public class Register
-    {
-    }
 }

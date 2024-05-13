@@ -6,4 +6,6 @@ namespace MFS.Client.Infrastructure.Managers.Authentication;
 public interface IAuthenticationManager : IManager
 {
     Task<IResult<bool>> LoginAsync(LoginDto model);
+
+    Task<IResult<bool>> RegisterAsync(RegisterDto model);
 }

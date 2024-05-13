@@ -9,4 +9,9 @@ public class AuthenticationManager : IAuthenticationManager
     {
         throw new NotImplementedException();
     }
+
+    public Task<IResult<bool>> RegisterAsync(RegisterDto model)
+    {
+        throw new NotImplementedException();
+    }
 }
