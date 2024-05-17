@@ -4,4 +4,4 @@ using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.NewsItems.Queries.GetNewsItems;
 
-public record GetNewsItemsQuery : IRequest<Result<List<NewsItemDto>>>;
+public record GetNewsItemsQuery : IRequest<IResult<List<NewsItemDto>>>;

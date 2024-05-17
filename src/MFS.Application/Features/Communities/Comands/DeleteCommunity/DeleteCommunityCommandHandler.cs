@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
+using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.Communities.Comands.DeleteCommunity;
 
-public class DeleteCommunityCommandHandler : IRequestHandler<DeleteCommunityCommand>
+public class DeleteCommunityCommandHandler : IRequestHandler<DeleteCommunityCommand, IResult>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly ICommunityRepository _communityRepository;
@@ -14,15 +15,16 @@ public class DeleteCommunityCommandHandler : IRequestHandler<DeleteCommunityComm
         _communityRepository = communityRepository;
     }
 
-    public async Task Handle(DeleteCommunityCommand request, CancellationToken cancellationToken)
+    public async Task<IResult> Handle(DeleteCommunityCommand request, CancellationToken cancellationToken)
     {
         var community = await _communityRepository.GetByIdAsync(request.Id);
         if (community == null)
         {
-            return;
+            return await Result.FailAsync();
         }
 
         _communityRepository.Delete(community);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
+        return await Result.SuccessAsync();
     }
 }

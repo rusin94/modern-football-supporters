@@ -7,6 +7,6 @@ public interface ICommunityRepository
     Community Create(Community community);
     Community Update(Community community);
     void Delete(Community community);
-    Task<Community> GetByIdAsync(int communityId);
+    Task<Community?> GetByIdAsync(int communityId);
     Task<List<Community>> GetAllAsync();
 }

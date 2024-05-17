@@ -29,7 +29,7 @@ public class CommunityRepository:ICommunityRepository
         _appDbContext.Communities.Remove(community);
     }
 
-    public async Task<Community> GetByIdAsync(int communityId)
+    public async Task<Community?> GetByIdAsync(int communityId)
     {
         return await _appDbContext.Communities.FindAsync(communityId);
     }

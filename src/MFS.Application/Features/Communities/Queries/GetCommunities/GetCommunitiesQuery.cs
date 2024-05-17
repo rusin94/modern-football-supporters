@@ -4,4 +4,4 @@ using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.Communities.Queries.GetCommunities;
 
-public record GetCommunitiesQuery: IRequest<Result<List<CommunityDto>>>;
+public record GetCommunitiesQuery: IRequest<IResult<List<CommunityDto>>>;

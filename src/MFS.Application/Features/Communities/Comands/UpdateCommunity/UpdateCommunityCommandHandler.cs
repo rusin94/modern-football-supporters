@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using MFS.Server.Infrastructure.Interfaces.Repositories;
+using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.Communities.Comands.UpdateCommunity;
 
-public class UpdateCommunityCommandHandler : IRequestHandler<UpdateCommunityCommand, int>
+public class UpdateCommunityCommandHandler : IRequestHandler<UpdateCommunityCommand, IResult<int>>
 {
     private readonly ICommunityRepository _communityRepository;
     private readonly IUnitOfWork _unitOfWork;
@@ -14,12 +15,12 @@ public class UpdateCommunityCommandHandler : IRequestHandler<UpdateCommunityComm
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<int> Handle(UpdateCommunityCommand request, CancellationToken cancellationToken)
+    public async Task<IResult<int>> Handle(UpdateCommunityCommand request, CancellationToken cancellationToken)
     {
         var community = await _communityRepository.GetByIdAsync(request.Dto.Id);
         if (community == null)
         {
-            return default;
+            return await Result<int>.FailAsync();
         }
 
         community.Name = request.Dto.Name;
@@ -27,6 +28,6 @@ public class UpdateCommunityCommandHandler : IRequestHandler<UpdateCommunityComm
 
         _communityRepository.Update(community);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return community.Id;
+        return await Result<int>.SuccessAsync(community.Id);
     }
 }

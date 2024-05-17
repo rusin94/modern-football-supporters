@@ -6,7 +6,7 @@ using MFS.Shared.Wrapper;
 
 namespace MFS.Application.Features.Communities.Queries.GetCommunities;
 
-public class GetCommunitiesQueryHandler : IRequestHandler<GetCommunitiesQuery, Result<List<CommunityDto>>>
+public class GetCommunitiesQueryHandler : IRequestHandler<GetCommunitiesQuery, IResult<List<CommunityDto>>>
 {
     private readonly IMapper _mapper;
     private readonly ICommunityRepository _communityRepository;
@@ -15,7 +15,7 @@ public class GetCommunitiesQueryHandler : IRequestHandler<GetCommunitiesQuery, R
         _communityRepository = communityRepository;
         _mapper = mapper;
     }
-    public async Task<Result<List<CommunityDto>>> Handle(GetCommunitiesQuery request, CancellationToken cancellationToken)
+    public async Task<IResult<List<CommunityDto>>> Handle(GetCommunitiesQuery request, CancellationToken cancellationToken)
     {
         var communities = await _communityRepository.GetAllAsync();
         var response = _mapper.Map<List<CommunityDto>>(communities);
