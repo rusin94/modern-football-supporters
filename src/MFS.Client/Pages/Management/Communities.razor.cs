@@ -18,7 +18,7 @@ public partial class Communities
     [Inject]
     private DialogService _dialogService { get; set; }
 
-    private List<CommunityDto> CommunitiesList { get; set; } = new();
+    private List<CommunityDto> CommunitiesList { get; set; } = new List<CommunityDto>();
 
     private RadzenDataGrid<CommunityDto> grid;
 

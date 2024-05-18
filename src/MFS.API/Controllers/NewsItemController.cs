@@ -32,8 +32,8 @@ public class NewsItemController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetNewsItems()
+    public async Task<IActionResult> GetNewsItems([FromQuery] GetNewsItemsQuery query)
     {
-        return await DispatchAsync(new GetNewsItemsQuery());
+        return await DispatchAsync(query);
     }
 }
