@@ -1,9 +1,20 @@
 using MFS.Application.Extensions;
+using MFS.Core.Entities;
 using MFS.Server.Infrastructure.Extensions;
+using MFS.Server.Persistence.Contexts;
 using MFS.Server.Persistence.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication()
+    .AddCookie(IdentityConstants.ApplicationScheme)
+    .AddBearerToken();
+builder.Services.AddIdentityCore<User>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders()
+    .AddApiEndpoints();
 builder.Services.AddApplicationLayer();
 builder.Services.AddInfrastructureLayer();
 builder.Services.AddPersistenceLayer(builder.Configuration);
@@ -27,6 +38,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapIdentityApi<User>();
 
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();

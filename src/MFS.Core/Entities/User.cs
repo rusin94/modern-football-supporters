@@ -1,5 +1,7 @@
-﻿namespace MFS.Core.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace MFS.Core.Entities;
+
+public class User :IdentityUser
 {
 }
