@@ -7,8 +7,12 @@ namespace MFS.Server.Persistence.Contexts;
 public class AppDbContext :DbContext
 {
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
+
     public DbSet<NewsItem> NewsItems { get; set; }
+
     public DbSet<Community> Communities { get; set; }
+
+    public DbSet<User> Users { get; set; }
 
     public AppDbContext(DbContextOptions options, AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor):base(options)
     {
