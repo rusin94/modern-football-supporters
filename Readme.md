@@ -11,11 +11,11 @@ user features:
 - [ ] user can view a list of all users
 
 communities features:
-- [ ] user can create a community
-- [ ] user can view a list of all communities
+- [x] user can create a community
+- [x] user can view a list of all communities
 - [ ] user can view a community
-- [ ] user can edit a community
-- [ ] user can delete a community
+- [x] user can edit a community
+- [x] user can delete a community
 - [ ] user can join a community
 - [ ] user can leave a community
 - [ ] user can view a list of all communities they are a member of
@@ -51,11 +51,11 @@ admin
 - [ ] admin can view a list of all gadget news items
 
 news items features:
-- [ ] user can view a list of all news items
+- [x] user can view a list of all news items
 - [ ] user can view a news item
-- [ ] user can write a news item
-- [ ] user can edit a news item
-- [ ] user can delete a news item
+- [x] user can write a news item
+- [x] user can edit a news item
+- [x] user can delete a news item
 - [ ] user can view a list of all comments on a news item
 - [ ] user can write a comment on a news item
 - [ ] user can edit a comment on a news item
