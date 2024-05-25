@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MFS.Core.Common;
 
-namespace MFS.Core.Entities
+namespace MFS.Core.Entities;
+
+public class SportEvent : AuditableEntity<Guid>
 {
-    internal class SportEvent
-    {
-    }
+    string Name { get; set; }
+
+    string Description { get; set; }
+
+    DateTime Date { get; set; }
+    
+    public Guid SportId { get; set; }
+    public Sport Sport { get; set; }
 }
