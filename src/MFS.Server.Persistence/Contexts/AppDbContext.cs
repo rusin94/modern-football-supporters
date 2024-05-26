@@ -14,6 +14,10 @@ public class AppDbContext :DbContext
 
     public DbSet<User> Users { get; set; }
 
+    public DbSet<Sport> Sports { get; set; }
+
+    public DbSet<SportEvent> SportEvents { get; set; }
+
     public AppDbContext(DbContextOptions options, AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor):base(options)
     {
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
