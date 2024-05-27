@@ -11,5 +11,5 @@ public class SportEvent : AuditableEntity<Guid>
     DateTime Date { get; set; }
     
     public Guid SportId { get; set; }
-    public Sport Sport { get; set; }
+    public SportType SportType { get; set; }
 }

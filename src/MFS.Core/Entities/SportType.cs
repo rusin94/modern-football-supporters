@@ -2,7 +2,7 @@
 
 namespace MFS.Core.Entities;
 
-public class Sport : AuditableEntity<Guid>
+public class SportType : AuditableEntity<Guid>
 {
     public string Name { get; set; }
     public string Description { get; set; }

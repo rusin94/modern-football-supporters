@@ -14,7 +14,7 @@ public class AppDbContext :DbContext
 
     public DbSet<User> Users { get; set; }
 
-    public DbSet<Sport> Sports { get; set; }
+    public DbSet<SportType> SportTypes { get; set; }
 
     public DbSet<SportEvent> SportEvents { get; set; }
 
