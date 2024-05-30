@@ -12,4 +12,16 @@ public class SportTypeController : ApiControllerBase
     {
         return Ok();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateSportType()
+    {
+        return Ok();
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateSportType()
+    {
+        return Ok();
+    }
 }
