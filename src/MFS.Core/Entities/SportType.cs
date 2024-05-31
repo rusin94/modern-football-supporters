@@ -1,10 +1,11 @@
 ﻿using MFS.Core.Common;
+using MFS.Core.ValueObjects.Community;
 
 namespace MFS.Core.Entities;
 
 public class SportType : AuditableEntity<Guid>
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public Name Name { get; set; }
+    public Description Description { get; set; }
     public ICollection<SportEvent> SportEvents { get; set; }
 }
