@@ -20,5 +20,8 @@ public class NewsItemEntityConfiguration : IEntityTypeConfiguration<NewsItem>
         builder.Property(x => x.Author)
             .HasConversion(x=>x.Value, x=> new Author(x))
             .IsRequired();
+        builder.HasOne(x => x.SportType)
+            .WithMany(x => x.NewsItems)
+            .HasForeignKey(x => x.SportTypeId);
     }
 }

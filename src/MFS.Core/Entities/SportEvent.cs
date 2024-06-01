@@ -4,11 +4,11 @@ namespace MFS.Core.Entities;
 
 public class SportEvent : AuditableEntity<Guid>
 {
-    string Name { get; set; }
+    public string Name { get; set; }
 
-    string Description { get; set; }
+    public string Description { get; set; }
 
-    DateTime Date { get; set; }
+    public DateTime Date { get; set; }
     
     public Guid SportId { get; set; }
     public SportType SportType { get; set; }

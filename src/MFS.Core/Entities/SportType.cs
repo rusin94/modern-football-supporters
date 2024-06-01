@@ -8,4 +8,5 @@ public class SportType : AuditableEntity<Guid>
     public Name Name { get; set; }
     public Description Description { get; set; }
     public ICollection<SportEvent> SportEvents { get; set; }
+    public ICollection<NewsItem> NewsItems { get; set; }
 }
