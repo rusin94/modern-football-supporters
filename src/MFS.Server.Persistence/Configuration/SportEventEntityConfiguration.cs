@@ -10,7 +10,8 @@ public class SportEventEntityConfiguration : IEntityTypeConfiguration<SportEvent
     public void Configure(EntityTypeBuilder<SportEvent> builder)
     {
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd();
         builder.Property(x => x.Name)
             .HasConversion(x => x.Value, x => new Name(x))
             .IsRequired();
