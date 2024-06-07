@@ -18,6 +18,7 @@ public static class ServiceExtension
 
         services.AddScoped<ICommunityRepository, CommunityRepository>();
         services.AddScoped<INewsItemRepository, NewsItemRepository>();
+        services.AddScoped<ISportTypeRepository, SportTypeRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
